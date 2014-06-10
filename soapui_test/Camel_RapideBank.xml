@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="RapideBank" resourceRoot="" soapui-version="4.5.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="PaiementSOAPBinding" type="wsdl" bindingName="{http://www.univ-lyon1.fr/M2TI/services/paiement}PaiementSOAPBinding" soapVersion="1_1" anonymous="optional" definition="file:/home/sereivuth/Desktop/SW/tiw5_camel/paiement.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/home/sereivuth/Desktop/SW/tiw5_camel/paiement.wsdl"><con:part><con:url>file:/home/sereivuth/Desktop/SW/tiw5_camel/paiement.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="Paiement" targetNamespace="http://www.univ-lyon1.fr/M2TI/services/paiement" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.univ-lyon1.fr/M2TI/services/paiement" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.univ-lyon1.fr/M2TI/services/paiement">
+      <xsd:element name="paiement">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="montant" type="xsd:double"/>
+            <xsd:element name="cmdid" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="reponse-paiement">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ok" type="xsd:boolean"/>
+            <xsd:element minOccurs="0" name="raison" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="PaiementResponse">
+    <wsdl:part element="tns:reponse-paiement" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PaiementRequest">
+    <wsdl:part element="tns:paiement" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PaiementPortType">
+    <wsdl:operation name="PaiementOperation">
+      <wsdl:input message="tns:PaiementRequest"></wsdl:input>
+      <wsdl:output message="tns:PaiementResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaiementSOAPBinding" type="tns:PaiementPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="PaiementOperation">
+      <soap:operation soapAction="http://www.univ-lyon1.fr/M2TI/services/paiement/PaiementOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Paiement">
+    <wsdl:port binding="tns:PaiementSOAPBinding" name="PaiementSOAPPort">
+      <soap:address location="http://localhost:8080/camel_route/webservices/paiement"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9000/camel_route/webservices/paiement</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.univ-lyon1.fr/M2TI/services/paiement/PaiementOperation" name="PaiementOperation" bindingOperationName="PaiementOperation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="TestCamelRapideBank"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9000/camel_route/webservices/paiement</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pai="http://www.univ-lyon1.fr/M2TI/services/paiement">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pai:paiement>
+         <montant>29</montant>
+         <cmdid>CMD-1</cmdid>
+      </pai:paiement>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.univ-lyon1.fr/M2TI/services/paiement/PaiementOperation"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

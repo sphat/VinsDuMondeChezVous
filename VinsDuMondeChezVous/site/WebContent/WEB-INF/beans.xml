@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+http://www.springframework.org/schema/jdbc
+http://www.springframework.org/schema/jdbc/spring-jdbc.xsd"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<!--=================== Creat SiteBeans===================== -->
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+	<bean id="VinServletHandler" class="vin.site.controlleur.VinRequestHandler">
+		<property name="gestionVinsBean" ref="gestionVinsBean" />
+		<property name="panierSession" ref="pannierSessionBean" />
+		<property name="jmsMessage" ref="jmsMessage" />
+		<property name="gestionClientsBean" ref="gestionClientsBean" />
+		<property name="gestionMessagesBean" ref="gestionMessagesBean" />
+	</bean>
+
+	<bean id="gestionVinsBean" class="vin.site.bean.GestionVinsBean">
+		<property name="wineDao" ref="wineDao" />
+	</bean>
+
+	<bean id="ClientDao" class="vin.dal.db.dao.JPAClientDAO">
+		<property name="emf" ref="emf" />
+	</bean>
+
+	<bean id="gestionClientsBean" class="vin.site.bean.GestionClientsBean">
+		<property name="clientDao" ref="clientDao" />
+	</bean>
+
+	<bean id="gestionMessagesBean" class="vin.site.bean.GestionMessagesBean">
+		<property name="messageDao" ref="messageDao" />
+	</bean>
+
+	<bean id="clientDao" class="vin.dal.db.dao.JPAClientDAO">
+		<property name="emf" ref="emf" />
+	</bean>
+
+	<bean id="messageDao" class="vin.dal.db.dao.JPAMessageDAO">
+		<property name="emf" ref="emf" />
+	</bean>
+
+	<bean id="wineDao" class="vin.dal.db.dao.JPAWineDAO">
+	</bean>
+
+	<bean id="jmsMessage" class="vin.site.message_jms.Jms_message" />
+
+	<bean id="pannierSessionBean" class="vin.site.commande_api.PanierSession" />
+
+	<bean id="commandeArticle" class="vin.dal.db.model.CommandeArticle"
+		scope="prototype" />
+
+	<bean id="articleBean" class="vin.site.commande_api.Article"
+		scope="prototype" />
+
+	<bean id="cmd" class="vin.site.commande_api.Commande" scope="prototype" />
+
+	<bean id="jsonBean" class="org.json.simple.JSONObject" />
+	<!--=================== End Creat SiteBeans===================== -->
+
+	<!--=================== End Creat EntityManagerFactory===================== -->
+	<bean id="emf"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="test" />
+<!-- 		<property name="dataSource" ref="dataSource" /> -->
+	</bean>
+	<!--=================== End Creat EntityManagerFactory===================== -->
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+ 		<property name="url" value="jdbc:h2:~/vin;AUTO_SERVER=TRUE" />
+		<property name="username" value="sa" />
+		<property name="password" value="" /> 
+		<property name="driverClassName" value="org.h2.Driver" />
+	</bean>
+	
+	<jdbc:initialize-database data-source="dataSource">
+		<jdbc:script location="classpath:/dataset/WineTestData.sql"/>
+	</jdbc:initialize-database>
+	
+	<!--=========================Creat EntityManager=========================== -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="emf" />
+	</bean>
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!--===================End Creat EntityManager===================== -->
+</beans>
+
+
+

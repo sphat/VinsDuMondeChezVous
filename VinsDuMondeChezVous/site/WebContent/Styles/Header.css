@@ -1,0 +1,118 @@
+@CHARSET "ISO-8859-1";
+
+.Header{
+	border: 2px solid #6B6B47;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+ 	background-image: url("../Image/Header/Header1.jpg");
+ 	background-repeat: no-repeat;
+}
+
+#header_user {
+	font: normal 11px 'Open Sans', sans-serif;
+	position: relative;
+	float: right;
+	right: 0;
+	top: 5px;
+	width: 250px;
+}
+
+#header_right #header_user ul{
+	list-style: none;
+}
+
+#header_user ul li{
+	float: left;
+}
+
+#header_user ul li {
+	display: block;
+}
+
+#header_user ul li#shopping_cart a{
+	color: #574a48;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	margin-left: 13px;
+	line-height: 1px;
+	margin-top: 6px
+}
+
+#header_user ul li#shopping_cart{
+	background: url("../Image/Header/Panier.png") no-repeat;
+	text-align: center;
+	color: #ec632e;
+	height: 77px;
+	width: 78px;
+}
+
+#header_user ul li#shopping_cart{
+		display: block;
+/* 	display: none; */
+}
+
+#header_user ul li#shopping_cart{
+	line-height: 70px;
+}
+
+#header_user #header_user_info{
+	display: block;
+	text-align: center;
+}
+
+#header_user #header_user_info.logged{
+	padding-bottom: 10px;
+}
+
+#header_user #header_user_info span.welcome, #header_right #header_user #header_user_info a{
+	display: block;;
+}
+
+#header_user #header_user_info a{
+	color:#8f3a55;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+#header_user #header_user_info a:hover{
+	text-decoration: none;
+}
+
+#header_user p#my_cart{
+	text-align: center;
+}
+
+#header_user p#my_cart a{
+	background: #ec632e;
+	color: #fff;
+	padding: 5px 8px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#header_user p#my_cart a:hover{
+	text-decoration: none;
+	background-color: #8f3a55;
+}
+
+.ajax_cart_quantity{
+	font: bold 25px 'Open Sans', sans-serif;
+	color: #ffffff;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	margin-left: 6px;
+	margin-top: 6px;
+}
+
+#header_logo{
+	margin-left: 6px;
+	margin-top: 6px;
+	font-family: 'Life Savers', cursive;
+	font-weight: bold;
+	color: #ffffff;
+}

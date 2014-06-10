@@ -1,0 +1,77 @@
+package vin.dal.db;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Calendar;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+
+import org.dbunit.IDatabaseTester;
+import org.dbunit.JdbcDatabaseTester;
+import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
+import org.dbunit.operation.DatabaseOperation;
+
+
+import vin.dal.db.dao.JPAWineDAO;
+import vin.dal.db.intf.DAOException;
+import vin.dal.db.intf.WineColor;
+import vin.dal.db.intf.WineType;
+import vin.dal.db.model.Bottle;
+import vin.dal.db.model.Location;
+import vin.dal.db.model.Wine;
+import junit.framework.TestCase;
+
+/**
+ * Unit test for simple App.
+ */
+public class AppTest extends TestCase {
+	
+    public void testMapping() {
+        EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
+        em.close();
+    }
+
+    public void testDAO() throws Exception {
+//        EntityManager em = Persistence.createEntityManagerFactory("test").createEntityManager();
+//        JPAWineDAO dao = new JPAWineDAO();
+//        dao.setEntityManager(em);
+//        em.getTransaction().begin();
+//        Location loc = (Location) dao.findOrCreateLocation("France", "Côte-d'Or", "Dijon");
+//        Wine wine = new Wine();
+//        wine.setAppellation("Courante");
+//        wine.setColor(WineColor.White);
+//        wine.setFbId("WhiskeyFR");
+//        wine.setLocation((vin.dal.db.model.Location) loc);
+//        wine.setPercentage(8);
+//        wine.setProducer("Ernest");
+//        wine.setVineyard("Chateau la pompe");
+//        Calendar annee = Calendar.getInstance();
+//        annee.clear();
+//        annee.set(2013, 1, 1);
+//        wine.setVintage(annee.getTime());
+//        wine.setWinestyle("Eau courante");
+//        wine.setWinetype(WineType.Ice);
+//        wine.addVariety("Eau", 10);
+//        wine.setPrice(45.9D);
+//        dao.insertOrUpdate(wine);
+//        Bottle b = new Bottle();
+//        b.setWine(wine);
+//        dao.insertOrUpdate(b);
+//        em.getTransaction().commit();
+//        em.close();
+    	IDataSet dataSet = readDataSet();
+    	  cleanlyInsertDataset(dataSet);
+    }
+    private IDataSet readDataSet() throws Exception {
+    	File file = new File("src//main//resources//dataset//dataset_wine.xml");
+    	return new FlatXmlDataSetBuilder().build(file);
+    	}
+    private void cleanlyInsertDataset(IDataSet dataSet) throws Exception {
+    	  IDatabaseTester databaseTester = new JdbcDatabaseTester("org.h2.Driver", "jdbc:h2:tcp://localhost/~/vin;DB_CLOSE_DELAY=-1", "sa", "");
+    	  databaseTester.setSetUpOperation(DatabaseOperation.CLEAN_INSERT);
+    	  databaseTester.setDataSet(dataSet);
+    	  databaseTester.onSetup();
+    	}
+}

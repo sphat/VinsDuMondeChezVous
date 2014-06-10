@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.univ-lyon1.fr/M2TI/services/mabanque" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MaBanque" targetNamespace="http://www.univ-lyon1.fr/M2TI/services/mabanque">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.univ-lyon1.fr/M2TI/services/mabanque">
+      <xsd:element name="debit">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="carte" type="xsd:long"/>
+            <xsd:element name="crypt" type="xsd:int"/>
+            <xsd:element name="montant" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="reponse-debit">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accorde" type="xsd:boolean"/>
+            <xsd:element name="raison" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DebitRequest">
+    <wsdl:part element="tns:debit" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="DebitResponse">
+    <wsdl:part element="tns:reponse-debit" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="MaBanquePortType">
+    <wsdl:operation name="DebitOperation">
+      <wsdl:input message="tns:DebitRequest"/>
+      <wsdl:output message="tns:DebitResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MaBanqueSOAPBinding" type="tns:MaBanquePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DebitOperation">
+      <soap:operation soapAction="http://www.univ-lyon1.fr/M2TI/services/mabanque/DebitOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MaBanque">
+    <wsdl:port binding="tns:MaBanqueSOAPBinding" name="MaBanqueSOAPPort">
+      <soap:address location="http://localhost:8082/debit"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

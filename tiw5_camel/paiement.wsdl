@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.univ-lyon1.fr/M2TI/services/paiement" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Paiement" targetNamespace="http://www.univ-lyon1.fr/M2TI/services/paiement">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.univ-lyon1.fr/M2TI/services/paiement" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://www.univ-lyon1.fr/M2TI/services/paiement">
+			<xsd:element name="paiement">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="montant" type="xsd:double"/>
+						<xsd:element name="cmdid" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="reponse-paiement">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ok" type="xsd:boolean"/>
+						<xsd:element minOccurs="0" name="raison" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="PaiementResponse">
+    <wsdl:part element="tns:reponse-paiement" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PaiementRequest">
+    <wsdl:part element="tns:paiement" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PaiementPortType">
+    <wsdl:operation name="PaiementOperation">
+      <wsdl:input message="tns:PaiementRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:PaiementResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaiementSOAPBinding" type="tns:PaiementPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="PaiementOperation">
+      <soap:operation soapAction="http://www.univ-lyon1.fr/M2TI/services/paiement/PaiementOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Paiement">
+    <wsdl:port binding="tns:PaiementSOAPBinding" name="PaiementSOAPPort">
+      <soap:address location="http://localhost:8080/camel_route/webservices/paiement"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

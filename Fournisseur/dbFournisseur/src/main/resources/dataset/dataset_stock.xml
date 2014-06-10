@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+  <WINESTOCK WINEID="ABC_TEST" NOM="100"/>
+  <WINESTOCK WINEID="BourgogneRouge" NOM="150"/>
+  <WINESTOCK WINEID="CruRouge" NOM="170"/>
+  <WINESTOCK WINEID="CruRouge1er" NOM="100"/>
+  <WINESTOCK WINEID="CruRouge2er" NOM="100"/>
+  <WINESTOCK WINEID="FrRedWine" NOM="100"/>
+  <WINESTOCK WINEID="Côtes-du-rhône" NOM="100"/>
+  <WINESTOCK WINEID="Red Wine" NOM="100"/>
+  <WINESTOCK WINEID="WhiskeyFR" NOM="100"/>
+  <WINESTOCK WINEID="White Wine" NOM="100"/> 
+</dataset>

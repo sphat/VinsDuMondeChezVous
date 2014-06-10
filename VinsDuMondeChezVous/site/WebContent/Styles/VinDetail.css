@@ -1,0 +1,85 @@
+.body {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #6B6B47 #6B6B47;
+    border-image: none;
+    border-right: 2px solid #6B6B47;
+    border-style: none solid solid;
+    border-width: medium 2px 2px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}
+
+.tableInfoVin{
+	width:800px;
+	height:600px;
+	padding-top:50px;
+	padding-left:100px;
+}
+
+.NomVin{
+	width:650px;
+	padding-left:50px;
+	padding-bottom:30px;
+	font-size:25px;
+	float:left;
+	border:1px solid gray;
+}
+
+.InforVin{
+	width:800px;
+	float:left;
+}
+
+.imageVin{
+	float:left;
+	width:280px;
+	border:1px solid gray;
+	border-top:none;
+	height:200px;
+}
+
+.Info{
+	float:left;
+	width:419px;
+	font-size:22px;
+	border:1px solid gray;
+	border-top:none;
+	border-left:none;
+	height:200px;
+}
+
+.type, .origin, .region{
+	padding-top:10px;
+}
+
+.AjouterPanier{
+	width:705px;
+	text-align:right;
+	height:100px;
+	padding-top:20px;
+	float:left;
+}
+
+.btAjouterPanier{
+	font-size:18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

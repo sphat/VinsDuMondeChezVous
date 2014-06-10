@@ -1,0 +1,19 @@
+.Footer{
+	border-style: none solid solid;
+    border-width: medium 2px 2px;
+    border-color: #6B6B47;
+	width: 900px;
+	height:100px;
+	overflow:hidden;
+	margin-left: auto;
+    margin-right: auto;
+    background: none repeat scroll 0 0 #EC632E;
+	/* background-image: url("../Image/Footer/Footer.jpg"); */
+}
+
+.FooterText{
+	font: bold 14px 'Life Savers',cursive;
+}
+p#copy_right{
+	text-align: center;
+}

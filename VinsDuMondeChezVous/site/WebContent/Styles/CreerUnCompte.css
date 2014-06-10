@@ -1,0 +1,120 @@
+@CHARSET "UTF-8";
+
+
+	.header{
+		height:100px;
+		width:900px;
+		border:2px solid #6B6B47;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	.body{
+		width:900px;
+		height:500px;
+		border:2px solid #6B6B47;
+		border-top:none;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	.titleCreerCompte{
+		text-align:center;
+		width:600px;
+		height:35px;
+		margin-left:auto;
+		margin-right:auto;
+		padding-top:20px;
+		border:1px solid #6B6B47;
+		border-bottom:none;
+		background-color: #EDB476;
+		color: #FFFFFF;
+	}
+	
+	.titleCreerCompte h2 {
+		float: left;
+		font-weight: bold;
+		font-size: 16px;
+		padding: 7px 0 0 7px;
+		margin: 0px;
+	}
+	
+	.titleCreerCompte a {
+		float: right;
+		font-size: 13px;
+		padding: 7px 2px 0 0;
+		margin: 0px;
+		color: #FFFFFF;
+	}
+	
+	.tableListChamps{
+		width:600px;
+		height:370px;
+		border:1px solid #6B6B47;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	.unChamp{
+		float:left;
+		height:50px;
+		width:550px;
+		margin-left:20px;
+	}
+	
+	.unChampTitle{
+		font-size: 15px;
+		font-weight: bold;
+		float:left;
+		height:50px;
+		width:550px;
+		margin-left:20px;
+		text-align: center;
+	}	
+	
+	.champLogin{
+		margin-top:15px;
+	}
+	
+	.textEmail{
+		width:150px;
+		float:left;
+		text-align:right;
+	}
+	
+	.textPass{
+		width:150px;
+		float:left;
+		text-align:right;
+	}
+	
+	.textConfirmerEmail{
+		margin-top:0px;
+	}
+	
+	.divEmail{
+		width:250px;
+		float:left;
+		margin-left:20px;
+	}
+	
+	.divPass{
+		width:250px;
+		float:left;
+		margin-left:20px;
+	}
+	
+	.divConfirmerEmail{
+		margin-top:0px;
+	}
+	
+	.inputEmail,.inputPass{
+		width:240px;
+	}
+	
+	.divButton{
+		margin-left:200px;
+		margin-top:30px;
+		width:200px;
+	}
+	

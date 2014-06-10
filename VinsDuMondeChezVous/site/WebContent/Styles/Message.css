@@ -1,0 +1,130 @@
+.body {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #6B6B47 #6B6B47;
+    border-image: none;
+    border-right: 2px solid #6B6B47;
+    border-style: none solid solid;
+    border-width: medium 2px 2px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}
+
+.bodyMessage{
+	float:left;
+	width:100%;
+	height:410px;
+	/* border:2px solid black; */
+}
+
+.DivListeMessage{
+	float:left;
+	width:30%;
+	height:100%;
+	border:1px solid black;
+	margin-left:5px;
+	margin-top:5px;
+}
+
+.DivDetailMessage{
+	float:left;
+	width:68%;
+	height:100%;
+	border:1px solid black;
+	border-left:none;
+	margin-top:5px;
+}
+
+.titleListeMessage, .titleDetailMessage{
+	float:left;
+	width:100%;
+	height:20px;
+	border-bottom:1px solid black;
+	text-align:center;
+	font-weight:bold;
+	background-color:#A7E1FF;
+}
+
+.espaceMessage{
+	float:left;
+	width:100%;
+	height:10px;
+}
+
+.unMessage{
+	float:left;
+	width:100%;
+	height:60px;
+	border-top:1px solid #D6C8DE;
+	cursor:pointer;
+}
+
+.titleMessage{
+	padding-left:2px;
+	
+}
+
+.expediteur{
+	color:#7A7A59;
+	padding-left:2px;
+}
+
+.ContenuMessage{
+	float:left;
+	width:99%;
+	height:100%;
+	padding-left:5px;
+	
+}
+
+.TitreMessage{
+	font-size:20px;
+	background-color:#EAEAE0;
+}
+
+.DateMessage{
+	float:left;
+	width:100%;
+	background-color:#EAEAE0;
+}
+
+.titreDateMessage{
+	float:left;
+	width:8%;
+	font-weight:bold;
+}
+
+.DateMessageDetail{
+	float:left;
+	width:80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

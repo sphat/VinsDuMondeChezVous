@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+.Content{
+	width: 900px;
+}
+
+.Wrap{
+/* 	width: 900px;
+	margin-left: auto;
+    margin-right: auto;
+	border-style: groove; */
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #6B6B47 #6B6B47;
+    border-image: none;
+    border-right: 2px solid #6B6B47;
+    border-style: none solid solid;
+    border-width: medium 2px 2px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}

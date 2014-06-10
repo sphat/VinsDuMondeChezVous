@@ -1,0 +1,114 @@
+@CHARSET "ISO-8859-1";
+
+	.header{
+		height:100px;
+		width:900px;
+		border:2px solid #6B6B47;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	.body{
+		width:900px;
+		height:500px;
+		border:2px solid #6B6B47;
+		border-top:none;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	.textLogin{
+/* 		text-align:center;
+		padding-top:10px;
+		font-size:20px; */
+		-moz-border-bottom-colors: none;
+	    -moz-border-left-colors: none;
+	    -moz-border-right-colors: none;
+	    -moz-border-top-colors: none;
+	    background-color: #EDB476;
+	    border-color: #6B6B47 #6B6B47 -moz-use-text-color;
+	    border-image: none;
+	    border-style: solid solid none;
+	    border-width: 1px 1px medium;
+	    color: #FFFFFF;
+	    height: 35px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    padding-top: 20px;
+	    text-align: center;
+	    width: 600px;
+	}
+	
+	.textLogin h2 {
+	    float: left;
+	    font-size: 16px;
+	    font-weight: bold;
+	    margin: 0;
+	    padding: 7px 0 0 7px;
+	}
+	
+	.textLogin a {
+	    color: #FFFFFF;
+	    float: right;
+	    font-size: 13px;
+	    margin: 0;
+	    padding: 7px 2px 0 0;
+	}
+	
+	.tableLogin{
+/* 		border:2px solid #6B6B47;
+		margin-top:30px;
+		margin-left:auto;
+		margin-right:auto;
+		width:500px;
+		height:150px; */
+		border: 1px solid #6B6B47;
+	    height: 170px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    width: 600px;
+	}
+	
+	.unChamp{
+		float:left;
+		height:50px;
+		width:550px;
+		margin-left:20px;
+	}
+	
+	.champLogin{
+		margin-top:15px;
+	}
+	
+	.textEmail{
+		width:150px;
+		float:left;
+		text-align:right;
+	}
+	
+	.divEmail{
+		width:250px;
+		float:left;
+		margin-left:8px;
+	}
+	
+	.inputEmail,.inputPass{
+		width:240px;
+	}
+	
+	.divPass{
+		width:250px;
+		float:left;
+		margin-left:8px;
+	}
+	
+	.textPass{
+		width:150px;
+		float:left;
+		text-align:right;
+	}
+	
+	.divButton{
+		margin-left:200px;
+		width:200px;
+	}
